@@ -5,5 +5,5 @@
     },
     "target": "es5"
   },
-  "isModule": false
+  "isModule": true
 }
