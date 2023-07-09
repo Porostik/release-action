@@ -11,4 +11,4 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.api_token }}
-    - ${{ github.event.pull_request.title }}
+    - ${{ GITHUB_REF_NAME }}
