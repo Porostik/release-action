@@ -7,3 +7,5 @@ const main = async () => {
 
   await api.createRelease('1');
 };
+
+main();

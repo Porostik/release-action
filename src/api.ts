@@ -1,29 +1,10 @@
 import { getOctokit } from '@actions/github';
 import { Config } from './types';
 
-export const provideApi = ({
-  apiToken,
-  owner,
-  repoName: repo,
-  pullNumber,
-}: Config) => {
+export const provideApi = ({ apiToken, owner, repoName: repo }: Config) => {
   const {
-    rest: { pulls, repos },
+    rest: { repos },
   } = getOctokit(apiToken);
-
-  const getCommints = async () =>
-    await pulls.listCommits({
-      owner,
-      repo,
-      pull_number: Number(pullNumber),
-      per_page: 100,
-    });
-
-  const getLatestRelease = async () =>
-    await repos.getLatestRelease({
-      owner,
-      repo,
-    });
 
   const createRelease = async (name: string) =>
     repos.createRelease({
@@ -34,8 +15,6 @@ export const provideApi = ({
     });
 
   return {
-    getCommints,
-    getLatestRelease,
     createRelease,
   };
 };
