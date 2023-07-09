@@ -1,0 +1,13 @@
+name: Realease-actiom
+description: Создание релизов
+
+inputs:
+  commint-prefix:
+    description: Префикс коммитов, которые будут отпечены в релизе
+    required: true
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.commint-prefix }}
