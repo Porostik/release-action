@@ -5,10 +5,13 @@ inputs:
   api_token:
     description: Апи токен для запросов
     required: true
+  pull_name:
+    description: Название пулл реквеста
+    required: true
 
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.api_token }}
-    - ${{ GITHUB_REF_NAME }}
+    - ${{ inputs.pull_name }}
