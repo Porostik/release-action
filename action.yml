@@ -2,12 +2,19 @@ name: Realease-actiom
 description: Создание релизов
 
 inputs:
-  commint-prefix:
-    description: Префикс коммитов, которые будут отпечены в релизе
+  commit_prefix:
+    description: Префикс коммитов, которые будут отпечены в релизе.
+    required: true
+  api_token:
+    description: Апи токен для запросов
     required: true
 
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.commint-prefix }}
+    - ${{ inputs.commint_prefix }}
+    - ${{ inputs.api_token }}
+    - ${{ github.event.number }}
+    - ${{ github.event.repository.owner }}
+    - ${{ github.event.repository.name }}
