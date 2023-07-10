@@ -1,11 +1,18 @@
+import { error, info } from '@actions/core';
 import { provideApi } from './api';
 import { provideConfig } from './config';
 
 const main = async () => {
-  const config = provideConfig();
-  const api = provideApi(config);
+  try {
+    const config = provideConfig();
+    const api = provideApi(config);
 
-  await api.createRelease();
+    const data = await api.createRelease();
+
+    info(data.data.url);
+  } catch (e) {
+    error(e);
+  }
 };
 
 main();
