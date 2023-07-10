@@ -5,7 +5,7 @@ const main = async () => {
   const config = provideConfig();
   const api = provideApi(config);
 
-  await api.createRelease('1');
+  await api.createRelease();
 };
 
 main();
