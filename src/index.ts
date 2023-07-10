@@ -1,4 +1,4 @@
-import { error, info } from '@actions/core';
+import { info, setFailed } from '@actions/core';
 import { provideApi } from './api';
 import { provideConfig } from './config';
 
@@ -11,7 +11,7 @@ const main = async () => {
 
     info(data.data.url);
   } catch (e) {
-    error(e);
+    setFailed(e);
   }
 };
 
