@@ -1,0 +1,4 @@
+{
+  "*.(js|jsx|ts|tsx)": ["eslint --fix --color", "pretty-quick --staged"],
+  "*.(json|yaml|yml|scss)": ["pretty-quick --staged"]
+}
