@@ -10,8 +10,5 @@ inputs:
     required: true
 
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
-  args:
-    - ${{ inputs.api_token }}
-    - ${{ inputs.pull_name }}
+  using: 'node16'
+  main: 'dist/index.js'
