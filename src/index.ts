@@ -6,6 +6,7 @@ const main = async () => {
   try {
     const config = provideConfig();
     const api = provideApi(config);
+    console.log(config);
 
     const data = await api.createRelease();
 
